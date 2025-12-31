@@ -21,7 +21,7 @@ Application web complète pour la gestion de réservations d'événements cultur
 
 ---
 
-## 🛠 Technologies Utilisées
+##  Technologies Utilisées
 
 - **Java**: 17+
 - **Spring Boot**: 3.2.0
@@ -354,13 +354,13 @@ spring.jpa.defer-datasource-initialization=true
 
 ## 👨‍💻 Auteur
 
-**Votre Nom**
+
 - Email: aatarkaima@gmail.com 
         - jettiuoimaroua@gmail.com
 
 ---
 
-## 📄 Licence
+
 
 Ce projet est développé dans le cadre d'un projet académique.
 
