@@ -1,0 +1,500 @@
+/* ========================================
+   VARIABLES & THEME
+   ======================================== */
+:root {
+    --primary-dark: #0f172a;
+    --primary-blue: #1e40af;
+    --primary-indigo: #4f46e5;
+    --accent-blue: #3b82f6;
+    --accent-cyan: #06b6d4;
+    --accent-purple: #7c3aed;
+    --light-blue: #dbeafe;
+    --bg-gradient: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+    --card-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+    --card-shadow-hover: 0 15px 50px rgba(0, 0, 0, 0.25);
+    --text-primary: #1e293b;
+    --text-secondary: #64748b;
+    --success: #10b981;
+    --warning: #f59e0b;
+    --error: #ef4444;
+    --border-radius: 12px;
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ========================================
+   LAYOUT PRINCIPAL
+   ======================================== */
+.reservations-view {
+    background: linear-gradient(to bottom, #f8fafc 0%, #e2e8f0 100%);
+    min-height: 100vh;
+}
+
+.main-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* ========================================
+   TOP BAR & NAVIGATION
+   ======================================== */
+.top-bar {
+    margin-bottom: 1.5rem;
+}
+
+.back-button {
+    background: white;
+    color: var(--primary-blue);
+    border: 2px solid var(--light-blue);
+    border-radius: var(--border-radius);
+    padding: 0.75rem 1.5rem;
+    font-weight: 600;
+    transition: var(--transition);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.back-button:hover {
+    background: var(--primary-blue);
+    color: white;
+    border-color: var(--primary-blue);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(30, 64, 175, 0.3);
+}
+
+/* ========================================
+   HEADER SECTION
+   ======================================== */
+.header-section {
+    background: var(--bg-gradient);
+    color: white;
+    padding: 2.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--card-shadow);
+    margin-bottom: 2rem;
+}
+
+.page-title {
+    margin: 0;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    color: white;
+}
+
+.event-title {
+    margin: 0.5rem 0 1rem 0;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #cbd5e1;
+}
+
+.info-layout {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.info-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    padding: 0.75rem 1.25rem;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.info-badge span:first-child {
+    font-size: 1.2rem;
+}
+
+/* ========================================
+   STATISTICS CARDS
+   ======================================== */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.stat-card {
+    background: white;
+    border-radius: var(--border-radius);
+    padding: 2rem;
+    box-shadow: var(--card-shadow);
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.stat-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-blue), var(--accent-cyan));
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--card-shadow-hover);
+}
+
+.stat-card-blue::before {
+    background: linear-gradient(90deg, #1e40af, #3b82f6);
+}
+
+.stat-card-indigo::before {
+    background: linear-gradient(90deg, #4f46e5, #6366f1);
+}
+
+.stat-card-purple::before {
+    background: linear-gradient(90deg, #7c3aed, #a855f7);
+}
+
+.stat-card-cyan::before {
+    background: linear-gradient(90deg, #06b6d4, #22d3ee);
+}
+
+.stat-content {
+    text-align: center;
+}
+
+.stat-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.stat-value {
+    display: block;
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+    line-height: 1;
+}
+
+.stat-card-blue .stat-value {
+    color: #1e40af;
+}
+
+.stat-card-indigo .stat-value {
+    color: #4f46e5;
+}
+
+.stat-card-purple .stat-value {
+    color: #7c3aed;
+}
+
+.stat-card-cyan .stat-value {
+    color: #06b6d4;
+}
+
+.stat-label {
+    display: block;
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* ========================================
+   FILTERS SECTION
+   ======================================== */
+.filters-section {
+    background: white;
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    margin-bottom: 2rem;
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    align-items: flex-end;
+}
+
+.search-field,
+.status-filter {
+    background: #f8fafc;
+    border-radius: 8px;
+}
+
+.search-field vaadin-text-field,
+.status-filter vaadin-combo-box {
+    --lumo-border-radius: 8px;
+    --lumo-contrast-10pct: transparent;
+}
+
+.search-field::part(input-field),
+.status-filter::part(input-field) {
+    background: #f8fafc;
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    transition: var(--transition);
+}
+
+.search-field:hover::part(input-field),
+.status-filter:hover::part(input-field) {
+    border-color: var(--accent-blue);
+    background: white;
+}
+
+.search-field:focus-within::part(input-field),
+.status-filter:focus-within::part(input-field) {
+    border-color: var(--primary-blue);
+    background: white;
+    box-shadow: 0 0 0 3px rgba(30, 64, 175, 0.1);
+}
+
+.reset-button {
+    background: var(--primary-dark);
+    color: white;
+    border-radius: 8px;
+    padding: 0.75rem 1.5rem;
+    font-weight: 600;
+    transition: var(--transition);
+    border: none;
+}
+
+.reset-button:hover {
+    background: var(--primary-blue);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(30, 64, 175, 0.3);
+}
+
+/* ========================================
+   GRID SECTION
+   ======================================== */
+.grid-container {
+    background: white;
+    border-radius: var(--border-radius);
+    padding: 1.5rem;
+    box-shadow: var(--card-shadow);
+}
+
+.reservations-grid {
+    border: none;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.reservations-grid::part(header-cell) {
+    background: var(--bg-gradient);
+    color: white;
+    font-weight: 700;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 1rem;
+    border: none;
+}
+
+.reservations-grid::part(row) {
+    transition: var(--transition);
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.reservations-grid::part(row):hover {
+    background: #f8fafc;
+}
+
+.reservations-grid::part(cell) {
+    padding: 1rem;
+    color: var(--text-primary);
+    font-size: 0.9rem;
+}
+
+/* ========================================
+   STATUS BADGES
+   ======================================== */
+.status-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    min-width: 120px;
+    transition: var(--transition);
+}
+
+.status-confirmed {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    color: white;
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+}
+
+.status-pending {
+    background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+    color: white;
+    box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
+}
+
+.status-cancelled {
+    background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+    color: white;
+    box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+}
+
+/* ========================================
+   ACTION BUTTONS
+   ======================================== */
+.action-button {
+    border-radius: 6px;
+    padding: 0.5rem;
+    transition: var(--transition);
+    min-width: 40px;
+    height: 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.confirm-button {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    color: white;
+    border: none;
+}
+
+.confirm-button:hover:not(:disabled) {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
+}
+
+.confirm-button:disabled {
+    background: #e5e7eb;
+    color: #9ca3af;
+    cursor: not-allowed;
+}
+
+.view-button {
+    background: var(--primary-blue);
+    color: white;
+    border: none;
+}
+
+.view-button:hover {
+    background: var(--primary-indigo);
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(30, 64, 175, 0.4);
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+   ======================================== */
+@media (max-width: 1200px) {
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .main-container {
+        padding: 1rem;
+    }
+
+    .header-section {
+        padding: 1.5rem;
+    }
+
+    .page-title {
+        font-size: 1.5rem;
+    }
+
+    .event-title {
+        font-size: 1.25rem;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .filters-section {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .search-field,
+    .status-filter,
+    .reset-button {
+        width: 100%;
+    }
+
+    .stat-value {
+        font-size: 1.75rem;
+    }
+
+    .info-layout {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+}
+
+/* ========================================
+   ANIMATIONS
+   ======================================== */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.stat-card,
+.grid-container,
+.filters-section {
+    animation: fadeIn 0.5s ease-out;
+}
+
+.stat-card:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.stat-card:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.stat-card:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.stat-card:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+/* ========================================
+   SCROLLBAR STYLING
+   ======================================== */
+.reservations-grid::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+.reservations-grid::-webkit-scrollbar-track {
+    background: #f1f5f9;
+    border-radius: 4px;
+}
+
+.reservations-grid::-webkit-scrollbar-thumb {
+    background: var(--primary-blue);
+    border-radius: 4px;
+}
+
+.reservations-grid::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-indigo);
+}

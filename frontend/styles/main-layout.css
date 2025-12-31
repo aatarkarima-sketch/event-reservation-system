@@ -1,0 +1,18 @@
+/* Bouton S'inscrire dans le navbar (quand non connecté) */
+.register-btn-navbar {
+    background: #26658C !important;
+    color: white !important;
+    font-weight: 600 !important;
+    font-size: 0.95rem !important;
+    padding: 0.65rem 1.8rem !important;
+    border-radius: 50px !important;
+    border: none !important;
+    transition: all 0.3s ease;
+    margin-left: 0.5rem;
+}
+
+.register-btn-navbar:hover {
+    background: #1e4d70 !important;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(38, 101, 140, 0.35);
+}

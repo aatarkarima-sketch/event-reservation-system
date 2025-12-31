@@ -1,0 +1,114 @@
+/* Container principal */
+.register-view-modern {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Inter', sans-serif;
+    background: #0f1b3a; /* identique à LoginView */
+}
+
+/* Carte glassmorphism centrée */
+.register-card {
+    max-width: 520px;
+    width: 90%;
+    padding: 3rem 2.5rem;
+    background: rgba(38, 101, 140, 0.28);   /* identique LoginView */
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 28px;
+    border: 2px solid rgba(84, 172, 191, 0.4);
+    box-shadow: 0 25px 60px rgba(0,0,0,0.35);
+    text-align: center;
+    animation: floatIn 1s ease-out;
+}
+
+/* Titres */
+.register-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: white;
+    margin: 0 0 0.5rem;
+    text-shadow: 0 4px 20px rgba(0,0,0,0.25);
+}
+
+.register-subtitle {
+    color: rgba(255,255,255,0.85);
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    font-weight: 300;
+}
+
+/* Champs input (identique LoginView) */
+.register-input::part(input-field) {
+    background: rgba(255,255,255,0.95);
+    border-radius: 16px;
+    border: 1px solid rgba(38,101,140,0.3);
+    padding: 0.85rem 1rem;
+    font-size: 1rem;
+    color: #1a1a1a;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
+
+.register-input::part(label) {
+    color: white !important;
+    font-weight: 500;
+}
+
+.register-input vaadin-icon {
+    color: #26658C;
+    font-size: 1.3rem;
+}
+
+/* Bouton s'inscrire (plus petit et premium) */
+.register-btn {
+    background: #26658C !important; /* bleu foncé identique LoginView */
+    color: white !important;
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 0.7rem 2rem;
+    border-radius: 50px;
+    box-shadow: 0 10px 30px rgba(38,101,140,0.35);
+    transition: all 0.3s ease;
+    min-width: 180px;
+    margin-top: 1rem;
+}
+
+.register-btn:hover {
+    background: #1e4d70 !important;
+    transform: translateY(-3px);
+    box-shadow: 0 18px 45px rgba(38,101,140,0.45);
+}
+
+/* Lien login */
+.login-link {
+    margin-top: 1.5rem;
+    color: #A7EBF2 !important;
+    font-weight: 600;
+    font-size: 1rem;
+    text-decoration: none;
+}
+
+.login-link:hover {
+    color: white !important;
+    text-decoration: underline;
+}
+
+/* Animation */
+@keyframes floatIn {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Formulaire en grille 2 colonnes */
+.register-form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* deux colonnes égales */
+    gap: 1rem 1rem;
+    width: 100%;
+}
+
+.register-form-grid .full-width {
+    grid-column: span 2; /* champs email et téléphone sur toute la largeur */
+}

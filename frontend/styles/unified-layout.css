@@ -1,0 +1,199 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&display=swap');
+
+/* ===== VARIABLES GLOBALES (identiques à HomeView) ===== */
+:root {
+    --primary-blue: #26658C;
+    --primary-dark: #1e4d70;
+    --primary-light: #54ACBF;
+    --white: #ffffff;
+    --gray-100: #f1f5f9;
+    --gray-200: #e2e8f0;
+}
+
+/* ===== NAVBAR GLOBAL (Public + Authentifié) ===== */
+.unified-layout .modern-navbar,
+.public-navbar,
+.authenticated-navbar {
+    position: relative;
+    background: var(--white);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.06);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    padding: 1rem 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 100%;
+    box-sizing: border-box;
+}
+.menu-button {
+    color: black !important;
+}
+
+.menu-button:hover {
+    color: #000000 !important;
+    background: rgba(0, 0, 0, 0.08) !important;
+}
+/* Contenu centré comme dans HomeView */
+.navbar-content,
+.public-navbar > *,
+.authenticated-navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+/* ===== LOGO IDENTIQUE À HOMEVIEW ===== */
+/* ===== LOGO MODERNE EVENTLY ===== */
+/* ===== LOGO GLOBAL EVENTLY (TOUTES LES PAGES) ===== */
+.unified-layout .navbar-logo {
+    font-family: 'Poppins', 'Inter', sans-serif;
+    font-size: 2.8rem;              /* PLUS GRAND */
+    font-weight: 900;               /* PLUS GRAS */
+    letter-spacing: -1px;
+    line-height: 1;
+
+    color: transparent;
+    background: linear-gradient(
+        135deg,
+        #26658C 0%,
+        #54ACBF 50%,
+        #1e4d70 100%
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+
+    cursor: pointer;
+    position: relative;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+/* Effet hover premium */
+.unified-layout .navbar-logo:hover {
+    transform: translateY(-2px) scale(1.07);
+    filter: drop-shadow(0 10px 25px rgba(38, 101, 140, 0.4));
+}
+
+/* Accent moderne après le logo */
+.unified-layout .navbar-logo::after {
+    content: "•";
+    color: #54ACBF;
+    margin-left: 6px;
+    font-size: 2rem;
+}
+
+/* Alignement logo + menu */
+.logo-section {
+    gap: 0.8rem;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .unified-layout .navbar-logo {
+        font-size: 2rem;
+    }
+}
+
+
+/* ===== LIENS SIMPLES (comme HomeView) ===== */
+.nav-link,
+.nav-simple-link {
+    color: var(--primary-blue) !important;
+    font-size: 0.95rem;
+    font-weight: 500;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    transition: all 0.25s ease;
+}
+
+.nav-link:hover,
+.nav-simple-link:hover {
+    background: rgba(38, 101, 140, 0.08);
+    color: var(--primary-dark) !important;
+}
+
+/* ===== BOUTONS CONNEXION / INSCRIPTION (comme HomeView) ===== */
+.login-btn,
+.login-btn-minimal {
+    color: var(--primary-blue) !important;
+    background: transparent !important;
+    border: 2px solid var(--primary-blue) !important;
+    font-weight: 600;
+    font-size: 0.95rem;
+    padding: 0.65rem 1.8rem;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+}
+
+.login-btn:hover {
+    background: var(--primary-blue) !important;
+    color: white !important;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(38, 101, 140, 0.25);
+}
+
+.register-btn,
+.register-btn-navbar {
+    background: var(--primary-blue) !important;
+    color: var(--white) !important;
+    font-weight: 600;
+    font-size: 0.95rem;
+    padding: 0.65rem 2rem;
+    border-radius: 50px;
+    border: none;
+    box-shadow: 0 4px 15px rgba(38, 101, 140, 0.25);
+    transition: all 0.3s ease;
+}
+
+.register-btn:hover {
+    background: var(--primary-dark) !important;
+    transform: translateY(-3px);
+    box-shadow: 0 12px 35px rgba(38, 101, 140, 0.4);
+}
+
+/* ===== SUPPRESSION DES DIFFÉRENCES PAR RÔLE ===== */
+.client-navbar,
+.organizer-navbar,
+.admin-navbar {
+    background: none !important;
+    padding: inherit !important;
+}
+
+/* ===== MENU DROPDOWN : CORRECTION TAILLE ===== */
+.menu-dropdown {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 1.5rem 2rem !important;
+    box-sizing: border-box;
+    background: var(--white);
+    border-top: 1px solid var(--gray-200);
+}
+
+.menu-dropdown.visible {
+    max-height: 700px;
+    opacity: 1;
+    padding: 1.5rem 2rem;
+}
+
+.menu-dropdown.hidden {
+    max-height: 0;
+    padding: 0;
+    opacity: 0;
+    overflow: hidden;
+}
+
+/* Responsive : mobile */
+@media (max-width: 768px) {
+    .navbar-logo {
+        font-size: 1.8rem;
+    }
+    .public-navbar,
+    .authenticated-navbar {
+        padding: 1rem 1.5rem;
+    }
+    .menu-dropdown.visible {
+        padding: 1rem 1.5rem;
+    }
+}

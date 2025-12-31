@@ -1,0 +1,748 @@
+/* ========================================
+   PROFILE VIEW - ULTRA MODERN DESIGN
+   Compatible avec le thème du projet
+   ======================================== */
+
+:root {
+    --primary-dark: #0f172a;
+    --primary-blue: #1e40af;
+    --primary-indigo: #4f46e5;
+    --accent-blue: #3b82f6;
+    --accent-cyan: #06b6d4;
+    --text-primary: #1e293b;
+    --text-secondary: #64748b;
+    --text-light: #94a3b8;
+    --bg-light: #f8fafc;
+    --bg-gradient: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    --border-color: #e2e8f0;
+    --success-color: #10b981;
+    --error-color: #ef4444;
+    --warning-color: #f59e0b;
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+    --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.12);
+    --shadow-xl: 0 12px 48px rgba(0, 0, 0, 0.15);
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 16px;
+    --radius-xl: 20px;
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ========================================
+   LAYOUT PRINCIPAL
+   ======================================== */
+.profile-view {
+    background: white ;
+    min-height: 100vh;
+    padding: 2rem 1.5rem;
+}
+
+.profile-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+/* ========================================
+   HERO SECTION - Section d'en-tête moderne
+   ======================================== */
+.profile-hero {
+    background: linear-gradient(135deg, #0f172a 0%, #1e40af 50%, #3b82f6 100%);
+    border-radius: var(--radius-xl);
+    padding: 3rem 2rem;
+    margin-bottom: 2rem;
+    box-shadow: var(--shadow-xl);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.profile-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23grid)" /></svg>');
+    opacity: 0.5;
+}
+
+.profile-hero > * {
+    position: relative;
+    z-index: 1;
+}
+
+.hero-avatar {
+    width: 120px !important;
+    height: 120px !important;
+    font-size: 2.5rem !important;
+    border: 5px solid white;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    transition: var(--transition);
+}
+
+.hero-avatar:hover {
+    transform: scale(1.05) rotate(5deg);
+    box-shadow: 0 12px 48px rgba(0, 0, 0, 0.4);
+}
+
+.hero-content {
+    padding: 0;
+    gap: 1rem;
+}
+
+.hero-title {
+    font-size: 2.25rem;
+    font-weight: 800;
+    color: white;
+    margin: 1rem 0 0 0;
+    letter-spacing: -0.5px;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.role-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.625rem 1.5rem;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
+}
+
+.hero-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-top: 1.5rem;
+}
+
+.meta-item {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.938rem;
+    font-weight: 500;
+}
+
+.meta-icon {
+    width: 20px;
+    height: 20px;
+    color: white;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+/* ========================================
+   CARDS - Design moderne avec glassmorphism
+   ======================================== */
+.profile-card {
+    background: white !important;
+    border-radius: var(--radius-xl);
+    padding: 2.5rem;
+    margin-bottom: 2rem;
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--border-color);
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.profile-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-blue), var(--accent-blue), var(--accent-cyan));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: var(--transition);
+}
+
+.profile-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-xl);
+}
+
+.profile-card:hover::before {
+    transform: scaleX(1);
+}
+
+.card-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-dark);
+    margin: 0 0 2rem 0;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.card-title::before {
+    content: '';
+    width: 4px;
+    height: 24px;
+    background: linear-gradient(180deg, var(--primary-blue), var(--accent-blue));
+    border-radius: 2px;
+}
+
+/* ========================================
+   FORMULAIRE - Layout en grille optimisé PC
+   ======================================== */
+vaadin-form-layout {
+    gap: 1.5rem !important;
+}
+
+/* Style des champs de formulaire */
+.profile-card vaadin-text-field,
+.profile-card vaadin-email-field,
+.profile-card vaadin-password-field {
+    width: 100%;
+}
+
+.profile-card vaadin-text-field::part(label),
+.profile-card vaadin-email-field::part(label),
+.profile-card vaadin-password-field::part(label) {
+    font-weight: 600;
+    color: var(--text-primary);
+    font-size: 0.875rem;
+    margin-bottom: 0.5rem;
+}
+
+.profile-card vaadin-text-field::part(input-field),
+.profile-card vaadin-email-field::part(input-field),
+.profile-card vaadin-password-field::part(input-field) {
+    background: white !important;
+    border: 2px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    transition: var(--transition);
+    box-shadow: var(--shadow-sm);
+}
+
+.profile-card vaadin-text-field::part(input-field):hover,
+.profile-card vaadin-email-field::part(input-field):hover,
+.profile-card vaadin-password-field::part(input-field):hover {
+    background: white !important;
+}
+
+.profile-card vaadin-text-field::part(input-field):focus,
+.profile-card vaadin-email-field::part(input-field):focus,
+.profile-card vaadin-password-field::part(input-field):focus {
+    border-color: var(--primary-blue);
+    background: white;
+    box-shadow: 0 0 0 4px rgba(30, 64, 175, 0.1);
+}
+
+/* Icônes préfixées */
+.profile-card vaadin-text-field vaadin-icon,
+.profile-card vaadin-email-field vaadin-icon,
+.profile-card vaadin-password-field vaadin-icon {
+    color: var(--accent-blue);
+}
+
+/* Helper text */
+.profile-card vaadin-text-field::part(helper-text),
+.profile-card vaadin-email-field::part(helper-text),
+.profile-card vaadin-password-field::part(helper-text) {
+    color: var(--text-light);
+    font-size: 0.813rem;
+}
+
+/* ========================================
+   BUTTONS - Design moderne avec gradient
+   ======================================== */
+.profile-card vaadin-button {
+    margin-top: 1.5rem;
+    background: linear-gradient(135deg, var(--primary-blue) 0%, var(--accent-blue) 100%);
+    color: white;
+    border: none;
+    border-radius: var(--radius-md);
+    padding: 0.875rem 2rem;
+    font-weight: 600;
+    font-size: 1rem;
+    box-shadow: 0 4px 16px rgba(30, 64, 175, 0.3);
+    transition: var(--transition);
+    cursor: pointer;
+    text-transform: none;
+}
+
+.profile-card vaadin-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 24px rgba(30, 64, 175, 0.4);
+    background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
+}
+
+.profile-card vaadin-button:active {
+    transform: translateY(0);
+}
+
+.profile-card vaadin-button vaadin-icon {
+    margin-right: 0.5rem;
+}
+
+/* ========================================
+   STATS - Layout en grille moderne (Bento style)
+   ======================================== */
+.stats-bento {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.stat-item {
+    background: linear-gradient(135deg, var(--bg-light) 0%, white 100%);
+    border: 2px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 2rem 1.5rem;
+    text-align: center;
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.stat-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-blue), var(--accent-blue));
+    transform: scaleX(0);
+    transition: var(--transition);
+}
+
+.stat-item:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--accent-blue);
+}
+
+.stat-item:hover::before {
+    transform: scaleX(1);
+}
+
+.stat-item vaadin-icon {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 1rem;
+    padding: 0.75rem;
+    border-radius: 50%;
+    background: rgba(59, 130, 246, 0.1);
+}
+
+.stat-item h4 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin: 0.5rem 0;
+    line-height: 1;
+    background: linear-gradient(135deg, var(--primary-blue), var(--accent-blue));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.stat-item span {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    display: block;
+    margin-top: 0.5rem;
+}
+
+/* ========================================
+   PASSWORD SECTION - Design amélioré
+   ======================================== */
+.password-form {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.password-requirements {
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.05) 0%, rgba(14, 165, 233, 0.05) 100%);
+    border-left: 4px solid var(--accent-blue);
+    padding: 1.5rem;
+    border-radius: var(--radius-md);
+    margin-bottom: 1.5rem;
+}
+
+.password-requirements-title {
+    font-size: 0.938rem;
+    font-weight: 700;
+    color: var(--primary-dark);
+    margin: 0 0 1rem 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.password-requirements-title::before {
+    content: '🔒';
+    font-size: 1.25rem;
+}
+
+.password-requirements-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 0.5rem;
+}
+
+.password-requirements-list li {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    padding-left: 1.75rem;
+    position: relative;
+    line-height: 1.6;
+}
+
+.password-requirements-list li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--success-color);
+    font-weight: bold;
+    font-size: 1.125rem;
+}
+
+/* ========================================
+   DANGER ZONE - Zone de danger élégante
+   ======================================== */
+.danger-zone {
+    background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%);
+    border: 2px solid var(--error-color) !important;
+    border-radius: var(--radius-xl);
+    padding: 2.5rem;
+    margin-top: 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.danger-zone::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #dc2626, var(--error-color));
+}
+
+.danger-zone .card-title {
+    color: var(--error-color);
+    border-bottom-color: rgba(239, 68, 68, 0.3);
+}
+
+.danger-zone .card-title::before {
+    background: linear-gradient(180deg, #dc2626, var(--error-color));
+}
+
+.danger-warning {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    background: white;
+    padding: 1.25rem;
+    border-radius: var(--radius-md);
+    margin: 1.5rem 0;
+    border-left: 4px solid var(--error-color);
+    box-shadow: var(--shadow-sm);
+}
+
+.danger-warning-icon {
+    font-size: 1.5rem;
+    flex-shrink: 0;
+    line-height: 1;
+}
+
+.danger-warning-text {
+    color: var(--text-secondary);
+    font-size: 0.938rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.profile-button-danger {
+    background: linear-gradient(135deg, #dc2626 0%, var(--error-color) 100%) !important;
+    color: white !important;
+    border: none !important;
+    border-radius: var(--radius-md) !important;
+    padding: 0.875rem 2rem !important;
+    font-weight: 600 !important;
+    font-size: 1rem !important;
+    box-shadow: 0 4px 16px rgba(239, 68, 68, 0.3) !important;
+    transition: var(--transition) !important;
+    cursor: pointer !important;
+    margin-top: 1rem !important;
+}
+
+.profile-button-danger:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 24px rgba(239, 68, 68, 0.4) !important;
+}
+
+/* ========================================
+   RESPONSIVE DESIGN - Optimisé pour tous les écrans
+   ======================================== */
+
+/* Desktop large (>1400px) */
+@media (min-width: 1400px) {
+    .profile-container {
+        max-width: 1400px;
+    }
+
+    .stats-bento {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+    }
+}
+
+/* Desktop (1024px - 1400px) */
+@media (min-width: 1024px) and (max-width: 1399px) {
+    .profile-container {
+        max-width: 1200px;
+    }
+}
+
+/* Tablette (768px - 1023px) */
+@media (max-width: 1023px) {
+    .profile-view {
+        padding: 1.5rem 1rem;
+    }
+
+    .profile-hero {
+        padding: 2.5rem 1.5rem;
+    }
+
+    .hero-title {
+        font-size: 2rem;
+    }
+
+    .hero-avatar {
+        width: 100px !important;
+        height: 100px !important;
+        font-size: 2rem !important;
+    }
+
+    .profile-card {
+        padding: 2rem;
+    }
+
+    .stats-bento {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .card-title {
+        font-size: 1.375rem;
+    }
+}
+
+/* Mobile (max 767px) */
+@media (max-width: 767px) {
+    .profile-view {
+        padding: 1rem 0.75rem;
+    }
+
+    .profile-hero {
+        padding: 2rem 1.25rem;
+        border-radius: var(--radius-lg);
+    }
+
+    .hero-avatar {
+        width: 90px !important;
+        height: 90px !important;
+        font-size: 1.75rem !important;
+        border-width: 4px;
+    }
+
+    .hero-title {
+        font-size: 1.75rem;
+    }
+
+    .profile-card {
+        padding: 1.5rem;
+        border-radius: var(--radius-lg);
+        margin-bottom: 1.5rem;
+    }
+
+    .card-title {
+        font-size: 1.25rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .stats-bento {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .stat-item {
+        padding: 1.5rem 1rem;
+    }
+
+    .stat-item h4 {
+        font-size: 2rem;
+    }
+
+    .danger-zone {
+        padding: 1.5rem;
+    }
+
+    .password-requirements {
+        padding: 1.25rem;
+    }
+}
+
+/* Très petit mobile (max 480px) */
+@media (max-width: 480px) {
+    .profile-view {
+        padding: 0.75rem 0.5rem;
+    }
+
+    .profile-hero {
+        padding: 1.5rem 1rem;
+    }
+
+    .hero-avatar {
+        width: 80px !important;
+        height: 80px !important;
+        font-size: 1.5rem !important;
+    }
+
+    .hero-title {
+        font-size: 1.5rem;
+    }
+
+    .profile-card {
+        padding: 1.25rem;
+    }
+
+    .card-title {
+        font-size: 1.125rem;
+    }
+
+    .stat-item h4 {
+        font-size: 1.75rem;
+    }
+}
+
+/* ========================================
+   ANIMATIONS
+   ======================================== */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.profile-hero {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+.profile-card {
+    animation: fadeInUp 0.6s ease-out backwards;
+}
+
+.profile-card:nth-child(2) {
+    animation-delay: 0.1s;
+}
+
+.profile-card:nth-child(3) {
+    animation-delay: 0.2s;
+}
+
+.profile-card:nth-child(4) {
+    animation-delay: 0.3s;
+}
+
+.profile-card:nth-child(5) {
+    animation-delay: 0.4s;
+}
+
+.stat-item {
+    animation: slideInRight 0.5s ease-out backwards;
+}
+
+.stat-item:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.stat-item:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.stat-item:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+/* ========================================
+   ACCESSIBILITÉ
+   ======================================== */
+.profile-card vaadin-button:focus-visible,
+.profile-button-danger:focus-visible {
+    outline: 3px solid var(--accent-blue);
+    outline-offset: 3px;
+}
+
+/* Réduire les animations pour préférence utilisateur */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+
+
+/* ========================================
+   PRINT STYLES
+   ======================================== */
+@media print {
+    .profile-hero,
+    .profile-card {
+        box-shadow: none;
+        page-break-inside: avoid;
+    }
+
+    .danger-zone,
+    .profile-card vaadin-button {
+        display: none;
+    }
+}

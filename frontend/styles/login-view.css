@@ -1,0 +1,180 @@
+/* ==================== LOGIN FINAL – BLEU TRANSPARENT + COHÉRENT AVEC HOMEVIEW ==================== */
+.login-view-final {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Inter', sans-serif;
+    background: #0f1b3a; /* fallback */
+}
+
+/* Carte encadrée en bleu transparent */
+.login-card-blue {
+    max-width: 420px;
+    width: 90%;
+    padding: 3.5rem 2.5rem;
+    border-radius: 28px;
+    background: rgba(38, 101, 140, 0.28);        /* Bleu #26658C très transparent */
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 2px solid rgba(84, 172, 191, 0.4);   /* Bordure #54ACBF */
+    box-shadow:
+        0 25px 60px rgba(0, 0, 0, 0.4),
+        0 0 40px rgba(38, 101, 140, 0.3);
+    text-align: center;
+    animation: floatIn 1s ease-out;
+}
+
+.login-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.2rem;
+    font-weight: 700;
+    color: white;
+    margin: 0 0 0.5rem;
+    text-shadow: 0 6px 30px rgba(0,0,0,0.5);
+}
+
+.login-subtitle {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.15rem;
+    margin-bottom: 2.5rem;
+    font-weight: 300;
+}
+
+
+/* ================== SUPPRESSION DU FOND BLANC LOGIN ================== */
+
+/* Wrapper principal du LoginForm */
+:host {
+    background: transparent !important;
+    box-shadow: none !important;
+}
+
+/* Carte blanche interne */
+vaadin-login-form-wrapper {
+    background: transparent !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+}
+
+/* Formulaire */
+vaadin-login-form {
+    background: transparent !important;
+}
+
+/* Champs */
+vaadin-text-field::part(input-field),
+vaadin-password-field::part(input-field) {
+    background: rgba(255, 255, 255, 0.95) !important;
+    border-radius: 16px;
+    border: none;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+/* Labels */
+vaadin-text-field::part(label),
+vaadin-password-field::part(label) {
+    color: #A7EBF2;
+    font-weight: 500;
+}
+
+/* Bouton submit modernisé */
+vaadin-button::part(button) {
+     background: #26658C !important;
+     color: white !important;
+     font-weight: 600 !important;
+        font-size: 0.95rem !important;
+        padding: 0.65rem 2rem !important;
+        border-radius: 50px !important;
+        border: none !important;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(38, 101, 140, 0.25);
+}
+
+/* Hover */
+vaadin-button::part(button):hover {
+    background: #15405a; /* bleu foncé plus sombre */
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+}
+
+
+/* Erreur */
+vaadin-login-form::part(error-message) {
+    background: rgba(255, 60, 60, 0.15);
+    color: #ffcccc;
+    border-radius: 12px;
+}
+
+
+
+/* Champs input */
+.custom-login-form vaadin-text-field::part(input-field),
+.custom-login-form vaadin-password-field::part(input-field) {
+    background: rgba(255, 255, 255, 0.95) !important;
+    border-radius: 16px;
+    border: none;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    padding: 1rem;
+    font-size: 1.05rem;
+}
+
+/* Labels */
+.custom-login-form vaadin-text-field::part(label),
+.custom-login-form vaadin-password-field::part(label) {
+    color: white !important;
+    font-weight: 700;
+}
+
+/* Bouton submit */
+.custom-login-form vaadin-button::part(button) {
+    background: linear-gradient(135deg, #26658C, #54ACBF);
+    color: white;
+    font-weight: 700;
+    border-radius: 50px;
+    padding: 0.9rem;
+    font-size: 1.05rem;
+    box-shadow: 0 12px 30px rgba(38,101,140,0.45);
+    transition: all 0.3s ease;
+}
+
+/* Hover bouton */
+.custom-login-form vaadin-button::part(button):hover {
+    transform: translateY(-3px);
+    box-shadow: 0 20px 45px rgba(38,101,140,0.6);
+}
+
+/* Message d'erreur */
+.custom-login-form::part(error-message) {
+    background: rgba(255, 60, 60, 0.15);
+    color: #ffcccc;
+    border-radius: 12px;
+}
+
+
+
+
+.login-btn:hover {
+    background: #1e4d70 !important;
+    transform: translateY(-4px);
+    box-shadow: 0 18px 45px rgba(38, 101, 140, 0.45);
+}
+
+/* Lien inscription */
+.register-link {
+    margin-top: 2rem;
+    color: #A7EBF2 !important;
+    font-weight: 600;
+    font-size: 1.05rem;
+    text-decoration: none;
+}
+
+.register-link:hover {
+    color: white !important;
+    text-shadow: 0 0 20px rgba(167, 235, 242, 0.8);
+}
+
+@keyframes floatIn {
+    from { opacity: 0; transform: translateY(50px); }
+    to { opacity: 1; transform: translateY(0); }
+}

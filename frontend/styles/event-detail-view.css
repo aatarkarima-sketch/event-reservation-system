@@ -1,0 +1,734 @@
+/* ==========================================
+   PALETTE DE COULEURS - EVENT DETAIL
+   ========================================== */
+:root {
+    --primary-dark: #0f172a;
+    --primary: #1e293b;
+    --primary-light: #334155;
+    --accent: #3b82f6;
+    --accent-hover: #2563eb;
+    --accent-dark: #1e40af;
+    --success: #10b981;
+    --success-light: #d1fae5;
+    --warning: #f59e0b;
+    --danger: #ef4444;
+    --gray-50: #f8fafc;
+    --gray-100: #f1f5f9;
+    --gray-200: #e2e8f0;
+    --gray-300: #cbd5e1;
+    --gray-400: #94a3b8;
+    --gray-500: #64748b;
+    --gray-600: #475569;
+    --gray-700: #334155;
+    --shadow-sm: 0 1px 2px 0 rgba(15, 23, 42, 0.05);
+    --shadow: 0 4px 6px -1px rgba(15, 23, 42, 0.1);
+    --shadow-md: 0 10px 15px -3px rgba(15, 23, 42, 0.1);
+    --shadow-lg: 0 20px 25px -5px rgba(15, 23, 42, 0.1);
+    --shadow-xl: 0 25px 50px -12px rgba(15, 23, 42, 0.25);
+}
+
+/* ==========================================
+   CONTENEUR PRINCIPAL
+   ========================================== */
+.event-detail-view {
+    background: linear-gradient(135deg, var(--gray-50) 0%, var(--gray-100) 100%);
+    min-height: 100vh;
+    padding: 0;
+    margin: 0;
+    font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+/* ==========================================
+   FIL D'ARIANE (BREADCRUMB)
+   ========================================== */
+.breadcrumb-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px 5%;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    animation: fadeIn 0.6s ease forwards;
+}
+
+.breadcrumb-link {
+    color: var(--accent);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.breadcrumb-link:hover {
+    color: var(--accent-hover);
+    text-decoration: underline;
+}
+
+.breadcrumb-separator {
+    color: var(--gray-400);
+    font-size: 14px;
+}
+
+.breadcrumb-current {
+    color: var(--gray-600);
+    font-size: 14px;
+    font-weight: 600;
+}
+/* ========================================== SECTION HERO IMAGE - CORRIGÉE ========================================== */
+/* ========================================== SECTION HERO IMAGE - CORRIGÉE & FIABLE ========================================== */
+.hero-section {
+    position: relative;
+    width: 100vw;
+    height: 80vh;                          /* Hauteur relative = s'adapte à tous les écrans */
+    min-height: 500px;                     /* Hauteur minimale raisonnable */
+    max-height: 800px;                     /* Hauteur maximale pour éviter débordement */
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
+    margin-top: 0;
+    margin-bottom: 60px;
+    border-radius: 0 0 32px 32px;           /* Coins arrondis seulement en bas */
+    overflow: hidden;
+    box-shadow: var(--shadow-xl);
+}
+
+.hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;                     /* L'image remplit sans déformation */
+    object-position: center;
+    display: block;
+}
+
+/* Overlay sombre progressif (plus beau et garantit la lisibilité) */
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.1) 0%,
+        rgba(0, 0, 0, 0.3) 40%,
+        rgba(0, 0, 0, 0.7) 80%,
+        rgba(0, 0, 0, 0.9) 100%
+    );
+    pointer-events: none;
+}
+
+/* Contenu toujours visible et bien placé */
+.hero-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 60px 8% 80px;                 /* Plus d'espace en bas */
+    z-index: 2;
+    color: white;
+    pointer-events: none;                  /* Permet le clic sur le bouton retour */
+}
+
+.hero-content > * {
+    pointer-events: auto;                  /* Réactive les clics sur les enfants (ex: badges) */
+}
+
+.hero-badges {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.hero-badge {
+    padding: 10px 24px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 14px;
+    color: white;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.hero-title {
+    font-size: clamp(36px, 5vw, 64px);
+    font-weight: 900;
+    color: white;
+    margin: 0 0 20px;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
+    line-height: 1.2;
+}
+
+.hero-meta {
+    display: flex;
+    gap: 32px;
+    flex-wrap: wrap;
+    font-size: 18px;
+    font-weight: 600;
+    opacity: 0.95;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+}
+
+.hero-meta-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.hero-meta-item vaadin-icon {
+    font-size: 24px;
+}
+
+/* Bouton retour - bien visible */
+.back-button {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    z-index: 10;
+    background: rgba(255, 255, 255, 0.95) !important;
+    border-radius: 50% !important;
+    width: 56px;
+    height: 56px;
+    box-shadow: var(--shadow-lg) !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.back-button:hover {
+    background: white !important;
+    transform: scale(1.1);
+    box-shadow: var(--shadow-xl) !important;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .hero-section {
+        height: 70vh;
+        min-height: 450px;
+        border-radius: 0 0 24px 24px;
+    }
+    .hero-content {
+        padding: 40px 6% 60px;
+    }
+    .hero-title {
+        font-size: clamp(32px, 6vw, 48px);
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-section {
+        height: 60vh;
+        min-height: 400px;
+    }
+    .hero-content {
+        padding: 30px 5% 50px;
+    }
+    .hero-meta {
+        gap: 20px;
+        font-size: 16px;
+    }
+    .back-button {
+        top: 20px;
+        left: 20px;
+        width: 48px;
+        height: 48px;
+    }
+}
+/* ==========================================
+   LAYOUT PRINCIPAL (Description + Carte)
+   ========================================== */
+.main-content-wrapper {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 5% 80px;
+    display: grid;
+    grid-template-columns: 1fr 400px;
+    gap: 40px;
+    align-items: start;
+}
+
+/* ==========================================
+   COLONNE GAUCHE - DESCRIPTION
+   ========================================== */
+.left-column {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+/* Info rapides en icônes */
+.quick-info-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 16px;
+    margin-bottom: 8px;
+    animation: fadeInUp 0.8s ease-out 0.4s backwards;
+}
+
+.info-card {
+    background: white;
+    padding: 20px;
+    border-radius: 16px;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--gray-200);
+    text-align: center;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.info-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+}
+
+.info-card-icon {
+    width: 48px;
+    height: 48px;
+    margin: 0 auto 12px;
+    background: linear-gradient(135deg, var(--accent) 0%, var(--accent-hover) 100%);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white !important;
+    font-size: 24px;
+}
+
+.info-card-label {
+    display: block;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--gray-500);
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.info-card-value {
+    display: block;
+    font-size: 16px;
+    font-weight: 800;
+    color: var(--primary-dark);
+}
+
+/* Section Description */
+.description-card {
+    background: white;
+    padding: 32px;
+    border-radius: 20px;
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--gray-200);
+    animation: fadeInUp 0.8s ease-out 0.5s backwards;
+}
+
+.description-title {
+    font-size: 24px;
+    font-weight: 800;
+    color: var(--primary-dark);
+    margin: 0 0 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.description-text {
+    font-size: 16px;
+    line-height: 1.8;
+    color: var(--gray-600);
+    margin: 0;
+}
+
+/* Section Organisateur */
+.organizer-card {
+    background: white;
+    padding: 32px;
+    border-radius: 20px;
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--gray-200);
+    animation: fadeInUp 0.8s ease-out 0.6s backwards;
+}
+
+.organizer-title {
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--primary-dark);
+    margin: 0 0 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.organizer-content {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.organizer-avatar {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent) 0%, var(--accent-hover) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 28px;
+    font-weight: 900;
+    box-shadow: var(--shadow);
+    flex-shrink: 0;
+}
+
+.organizer-info {
+    flex: 1;
+}
+
+.organizer-name {
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--primary-dark);
+    margin: 0 0 8px;
+}
+
+.organizer-contact {
+    font-size: 14px;
+    color: var(--gray-600);
+    margin: 4px 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.organizer-contact vaadin-icon {
+    color: var(--accent);
+}
+
+/* ==========================================
+   COLONNE DROITE - CARTE DE RÉSERVATION
+   ========================================== */
+.right-column {
+    position: sticky;
+    top: 20px;
+    animation: fadeInUp 0.8s ease-out 0.7s backwards;
+}
+
+.reservation-card {
+    background: white;
+    padding: 32px;
+    border-radius: 20px;
+    box-shadow: var(--shadow-xl);
+    border: 1px solid var(--gray-200);
+}
+
+/* Section Prix */
+.price-section {
+    background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+    padding: 28px;
+    border-radius: 16px;
+    text-align: center;
+    margin-bottom: 28px;
+    box-shadow: 0 8px 20px rgba(15, 23, 42, 0.3);
+}
+
+.price-label {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    color: white !important;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.price-value {
+    display: block;
+    font-size: 48px;
+    font-weight: 900;
+    color: white !important;
+    line-height: 1;
+}
+
+/* Section Disponibilité */
+.availability-section {
+    margin-bottom: 28px;
+}
+
+.availability-title {
+    font-size: 16px;
+    font-weight: 800;
+    color: var(--primary-dark);
+    margin: 0 0 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.availability-bar {
+    height: 12px;
+    background: var(--gray-200);
+    border-radius: 6px;
+    overflow: hidden;
+    margin-bottom: 12px;
+}
+
+.availability-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--success) 0%, var(--success) 100%);
+    border-radius: 6px;
+    transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.availability-fill.warning {
+    background: linear-gradient(90deg, var(--warning) 0%, var(--danger) 100%);
+}
+
+.availability-stats {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+}
+
+.availability-reserved {
+    color: var(--gray-500);
+    font-weight: 600;
+}
+
+.availability-remaining {
+    color: var(--success);
+    font-weight: 800;
+}
+
+.availability-remaining.warning {
+    color: var(--warning);
+}
+
+/* Bouton de Réservation */
+.reserve-button {
+    width: 100% !important;
+    height: 60px !important;
+    background: linear-gradient(135deg, var(--accent) 0%, var(--accent-hover) 100%) !important;
+    color: white !important;
+    border: none !important;
+    border-radius: 14px !important;
+    font-size: 18px !important;
+    font-weight: 800 !important;
+    letter-spacing: 0.5px !important;
+    text-transform: uppercase !important;
+    box-shadow: 0 4px 16px rgba(59, 130, 246, 0.4) !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    cursor: pointer;
+}
+
+.reserve-button:hover {
+    background: linear-gradient(135deg, var(--accent-hover) 0%, var(--accent-dark) 100%) !important;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(59, 130, 246, 0.5) !important;
+}
+
+.reserve-button:active {
+    transform: translateY(-1px);
+}
+
+/* Messages d'avertissement */
+.warning-message {
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+    font-weight: 700;
+    font-size: 16px;
+}
+
+.warning-message.unavailable {
+    background: #FFF3E0;
+    color: #E65100;
+    border: 2px solid #FFB74D;
+}
+
+.warning-message.full {
+    background: #FFEBEE;
+    color: #C62828;
+    border: 2px solid #EF5350;
+}
+
+.connection-notice {
+    display: block;
+    text-align: center;
+    font-size: 13px;
+    color: var(--gray-500);
+    margin-top: 16px;
+    font-weight: 500;
+}
+
+/* ==========================================
+   MAP SECTION (si vous voulez ajouter une carte)
+   ========================================== */
+.map-section {
+    background: white;
+    padding: 32px;
+    border-radius: 20px;
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--gray-200);
+    margin-top: 32px;
+}
+
+.map-title {
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--primary-dark);
+    margin: 0 0 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.map-container {
+    width: 100%;
+    height: 300px;
+    border-radius: 12px;
+    overflow: hidden;
+    background: var(--gray-100);
+}
+
+/* ==========================================
+   ANIMATIONS
+   ========================================== */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+/* ==========================================
+   RESPONSIVE DESIGN
+   ========================================== */
+@media (max-width: 1200px) {
+    .main-content-wrapper {
+        grid-template-columns: 1fr 350px;
+        gap: 32px;
+    }
+
+    .hero-title {
+        font-size: 40px;
+    }
+}
+
+@media (max-width: 992px) {
+    .main-content-wrapper {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+
+    .right-column {
+        position: static;
+        order: -1; /* Carte de réservation en haut sur mobile */
+    }
+
+    .quick-info-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-section {
+        height: 300px;
+        border-radius: 16px;
+    }
+
+    .hero-title {
+        font-size: 32px;
+    }
+
+    .hero-meta {
+        font-size: 14px;
+        gap: 16px;
+    }
+
+    .main-content-wrapper {
+        padding: 0 3% 60px;
+    }
+
+    .description-card,
+    .organizer-card,
+    .reservation-card {
+        padding: 24px;
+    }
+
+    .price-value {
+        font-size: 40px;
+    }
+}
+
+@media (max-width: 480px) {
+    .breadcrumb-container {
+        padding: 16px 3%;
+        font-size: 13px;
+    }
+
+    .hero-section {
+        height: 250px;
+        border-radius: 12px;
+        margin-bottom: 24px;
+    }
+
+    .hero-title {
+        font-size: 24px;
+    }
+
+    .hero-content {
+        padding: 24px 3%;
+    }
+
+    .quick-info-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .reserve-button {
+        height: 56px !important;
+        font-size: 16px !important;
+    }
+}
+
+/* ==========================================
+   AMÉLIORATIONS SUPPLÉMENTAIRES
+   ========================================== */
+
+/* Sélection de texte */
+::selection {
+    background: var(--accent);
+    color: white;
+}
+
+::-moz-selection {
+    background: var(--accent);
+    color: white;
+}
+
+/* Scroll smooth */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Focus visible */
+*:focus-visible {
+    outline: 3px solid var(--accent);
+    outline-offset: 2px;
+    border-radius: 8px;
+}
+
+/* Performance optimizations */
+.hero-section,
+.info-card {
+    will-change: transform;
+}

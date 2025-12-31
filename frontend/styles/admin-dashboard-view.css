@@ -1,0 +1,310 @@
+/* ========================================== ADMIN DASHBOARD VIEW ========================================== */
+.admin-dashboard-view {
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+    min-height: 100vh;
+    padding: 0;
+    margin: 0;
+    font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+/* Breadcrumb (réutilise le style existant ou adapte) */
+.breadcrumb-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px 5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;  /* Centre les éléments du fil d'ariane */
+    gap: 12px;
+    font-size: 14px;
+}
+
+.breadcrumb-link { color: #3b82f6; text-decoration: none; font-weight: 500; }
+.breadcrumb-link:hover { text-decoration: underline; }
+.breadcrumb-separator { color: #94a3b8; }
+.breadcrumb-current { color: #334155; font-weight: 600; }
+
+/* Titre principal - centré */
+.page-title {
+    max-width: 1400px;
+    margin: 40px auto;        /* Centre horizontalement le bloc */
+    padding: 0 5%;
+    font-size: 36px;
+    font-weight: 900;
+    color: #0f172a;
+    text-align: center;       /* Centre le texte à l'intérieur */
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Optionnel : responsive */
+@media (max-width: 768px) {
+    .page-title {
+        font-size: 28px;
+        margin: 30px auto;
+    }
+}
+
+/* ========================================== CARTES STATISTIQUES MODERNES ========================================== */
+.stats-cards {
+    max-width: 1600px;
+    margin: 0 auto 40px;
+    padding: 0 5%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 28px;
+}
+
+.stat-card-modern {
+    background: white;
+    padding: 32px;
+    border-radius: 24px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+    border: 1px solid #f1f5f9;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.stat-card-modern:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+/* Icône : fond très léger, monochrome */
+.stat-icon-modern {
+    width: 64px;
+    height: 64px;
+    background: #f8fafc;
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #4f46e5; /* Indigo doux */
+    font-size: 30px;
+    margin-bottom: 20px;
+    border: 1px solid #e2e8f0;
+}
+
+/* Titre */
+.stat-title {
+    font-size: 15px;
+    font-weight: 600;
+    color: #64748b;
+    margin: 0 0 12px 0;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+}
+
+/* Valeur principale */
+.stat-value-modern {
+    font-size: 42px;
+    font-weight: 800;
+    color: #0f172a;
+    margin-top: 8px;
+    line-height: 1;
+}
+
+/* Breakdown */
+.stat-breakdown-modern {
+    margin-top: 24px;
+    padding-top: 24px;
+    border-top: 1px solid #e2e8f0;
+    font-size: 15px;
+    color: #475569;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.stat-breakdown-modern strong {
+    color: #1e293b;
+}
+
+/* Placeholder pour les futurs graphiques (si tu ajoutes ChartJs plus tard) */
+.user-role-pie-chart,
+.events-breakdown-chart {
+    height: 200px;
+    margin-top: 20px;
+    background: #f8fafc;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #94a3b8;
+    font-style: italic;
+    font-size: 15px;
+    border: 1px dashed #cbd5e1;
+}
+/* ========================================== SECTION GRAPHES ========================================== */
+.reservations-chart-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr; /* 3 graphiques côte à côte */
+    gap: 32px;
+}
+
+.reservations-line-chart,
+.user-role-pie,
+.events-status-bar-chart {
+    background: white;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--gray-200);
+}
+
+@media (max-width: 1200px) {
+    .reservations-chart-section {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .reservations-chart-section {
+        grid-template-columns: 1fr;
+    }
+}
+
+.reservations-chart-section {
+    max-width: 1400px;
+    margin: 0 auto 40px;
+    padding: 0 5%;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 32px;
+}
+
+.reservations-line-chart,
+.user-role-pie,
+.events-status-bar-chart {
+    background: white;
+    padding: 32px;
+    border-radius: 20px;
+    box-shadow: 0 4px 6px -1px rgba(15, 23, 42, 0.1);
+    border: 1px solid #e2e8f0;
+    min-height: 360px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #94a3b8;
+    font-size: 16px;
+    font-style: italic;
+}
+
+/* ========================================== ACTIVITÉ RÉCENTE ========================================== */
+.recent-activity-section {
+    max-width: 1400px;
+    margin: 0 auto 40px;
+    padding: 0 5%;
+}
+
+.recent-activity-section h3 {
+    font-size: 24px;
+    font-weight: 800;
+    color: #0f172a;
+    margin-bottom: 24px;
+}
+
+.activity-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px 0;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.activity-item:last-child { border-bottom: none; }
+
+.activity-item vaadin-icon {
+    font-size: 20px;
+    color: #64748b;
+}
+
+.activity-item .activity-status-confirmée {
+    background: #d1fae5;
+    color: #065f46;
+    padding: 4px 12px;
+    border-radius: 50px;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.activity-item .activity-status-en-attente {
+    background: #fff4e5;
+    color: #c2410c;
+    padding: 4px 12px;
+    border-radius: 50px;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.activity-item .activity-status-annulée {
+    background: #fee2e2;
+    color: #991b1b;
+    padding: 4px 12px;
+    border-radius: 50px;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+/* ========================================== STATS BAS DE PAGE ========================================== */
+.bottom-stats {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 5% 60px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+}
+
+.bottom-stat {
+    background: white;
+    padding: 28px;
+    border-radius: 20px;
+    box-shadow: 0 4px 6px -1px rgba(15, 23, 42, 0.1);
+    border: 1px solid #e2e8f0;
+}
+
+.bottom-stat h4 {
+    font-size: 16px;
+    font-weight: 600;
+    color: #64748b;
+    margin: 0 0 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.bottom-stat .stat-value {
+    font-size: 32px;
+    margin: 8px 0;
+}
+
+.positive-change {
+    color: #10b981;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.negative-change {
+    color: #ef4444;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+/* ========================================== RESPONSIVE ========================================== */
+@media (max-width: 992px) {
+    .reservations-chart-section {
+        grid-template-columns: 1fr;
+    }
+    .stats-cards {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .page-title { font-size: 28px; padding: 0 3%; }
+    .stats-cards { grid-template-columns: 1fr; padding: 0 3%; }
+    .reservations-chart-section { padding: 0 3%; }
+    .recent-activity-section { padding: 0 3%; }
+    .bottom-stats { padding: 0 3% 40px; }
+}

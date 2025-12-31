@@ -1,0 +1,481 @@
+/* ========================================
+   CLIENT LAYOUT - MODERN NAVBAR
+   ======================================== */
+
+:root {
+    --primary-dark: #0f172a;
+    --primary-blue: #1e40af;
+    --accent-blue: #3b82f6;
+    --text-primary: #1e293b;
+    --text-secondary: #64748b;
+    --bg-white: #ffffff;
+    --border-color: #e2e8f0;
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ========================================
+   LAYOUT PRINCIPAL
+   ======================================== */
+.client-layout {
+    --vaadin-app-layout-navbar-background: white;
+}
+
+.navbar-container {
+    position: relative;
+    width: 100%;
+    background: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    z-index: 1000;
+}
+
+/* ========================================
+   NAVBAR PRINCIPALE
+   ======================================== */
+.client-navbar {
+    padding: 0.875rem 2rem;
+    background: white;
+    height: 70px;
+    position: relative;
+}
+
+/* ========================================
+   LOGO SECTION
+   ======================================== */
+.logo-section {
+    gap: 1rem;
+}
+
+.navbar-logo {
+    margin: 0;
+    font-size: 1.75rem;
+    font-weight: 800;
+    color: #1e40af;
+    letter-spacing: -0.5px;
+    transition: var(--transition);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.navbar-logo:hover {
+    transform: scale(1.05);
+    color: #1e3a8a;
+}
+
+.menu-button {
+    background: var(--primary-dark);
+    color: white;
+    border-radius: 12px;
+    padding: 0.75rem;
+    min-width: 44px;
+    height: 44px;
+    border: 2px solid rgba(15, 23, 42, 0.3);
+    transition: var(--transition);
+}
+
+.menu-button:hover {
+    background: #1e293b;
+    border-color: rgba(15, 23, 42, 0.5);
+    transform: translateY(-2px);
+}
+
+.menu-button vaadin-icon {
+    width: 24px;
+    height: 24px;
+}
+
+/* ========================================
+   NAVIGATION BUTTONS (Centre)
+   ======================================== */
+.nav-buttons {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.nav-button {
+    padding: 0.625rem 1.25rem;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 0.938rem;
+    color: var(--text-secondary);
+    transition: var(--transition);
+    text-transform: none;
+}
+
+.nav-button:hover {
+    background: rgba(30, 64, 175, 0.1);
+    color: var(--primary-blue);
+}
+
+.nav-button vaadin-icon {
+    width: 18px;
+    height: 18px;
+    margin-right: 0.5rem;
+}
+
+/* ========================================
+   USER SECTION (Droite)
+   ======================================== */
+.user-section {
+    gap: 0.75rem;
+    padding: 0.5rem 1rem;
+    background: rgba(30, 64, 175, 0.05);
+    border: 1px solid rgba(30, 64, 175, 0.1);
+    border-radius: 50px;
+    transition: var(--transition);
+}
+
+.user-section:hover {
+    background: rgba(30, 64, 175, 0.1);
+    box-shadow: 0 2px 8px rgba(30, 64, 175, 0.1);
+}
+
+.user-avatar {
+    width: 40px;
+    height: 40px;
+    border: 2px solid var(--primary-blue);
+    transition: var(--transition);
+}
+
+.user-avatar:hover {
+    transform: scale(1.1);
+}
+
+.user-name {
+    font-size: 0.938rem;
+    font-weight: 600;
+    color: var(--primary-dark);
+}
+
+/* ========================================
+   MENU DROPDOWN
+   ======================================== */
+.menu-dropdown {
+    position: fixed;
+    top: 80px;
+    left: 2rem;
+    bottom: 2rem;
+    width: 320px;
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+    overflow-y: auto;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1001;
+    border: 1px solid var(--border-color);
+}
+
+.menu-dropdown.hidden {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(-20px);
+}
+
+.menu-dropdown.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+    animation: slideRight 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes slideRight {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* ========================================
+   USER INFO MOBILE
+   ======================================== */
+.user-info-mobile {
+    padding: 1.5rem;
+    background: linear-gradient(135deg, #0f172a 0%, #1e40af 100%);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.user-card-mobile {
+    gap: 1rem;
+}
+
+.user-name-mobile {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: white;
+    display: block;
+    margin-bottom: 0.25rem;
+}
+
+.user-email-mobile {
+    font-size: 0.875rem;
+    color: #cbd5e1;
+    display: block;
+    margin-bottom: 0.25rem;
+}
+
+.user-role-mobile {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #94a3b8;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* ========================================
+   MENU SECTIONS
+   ======================================== */
+.menu-section {
+    padding: 1rem 1rem 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.menu-section:last-child {
+    border-bottom: none;
+}
+
+.menu-section-title {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 0.75rem;
+    padding: 0 0.75rem;
+}
+
+/* ========================================
+   MENU ITEMS
+   ======================================== */
+.menu-item {
+    width: 100%;
+    padding: 1rem 0.75rem;
+    background: transparent;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: var(--transition);
+    text-align: left;
+    margin-bottom: 0.5rem;
+}
+
+.menu-item:last-child {
+    margin-bottom: 0;
+}
+
+.menu-item:hover {
+    background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+    transform: translateX(4px);
+}
+
+.menu-item:active {
+    transform: translateX(4px) scale(0.98);
+}
+
+.menu-item-icon {
+    width: 24px;
+    height: 24px;
+    color: var(--accent-blue);
+    flex-shrink: 0;
+}
+
+.menu-item-text {
+    gap: 0.25rem;
+    flex-grow: 1;
+}
+
+.menu-item-title {
+    font-size: 0.938rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    display: block;
+    line-height: 1.3;
+}
+
+.menu-item-description {
+    font-size: 0.813rem;
+    color: var(--text-secondary);
+    display: block;
+    line-height: 1.4;
+}
+
+/* ========================================
+   LOGOUT SECTION
+   ======================================== */
+.logout-section {
+    padding: 1rem;
+    background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+    margin-top: auto;
+}
+
+.logout-button {
+    width: 100%;
+    background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    padding: 0.875rem 1.5rem;
+    font-weight: 700;
+    font-size: 1rem;
+    box-shadow: 0 4px 12px rgba(30, 64, 175, 0.3);
+    transition: var(--transition);
+    text-transform: none;
+}
+
+.logout-button:hover {
+    background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(30, 64, 175, 0.4);
+}
+
+.logout-button vaadin-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 0.5rem;
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+   ======================================== */
+
+/* Tablette */
+@media (max-width: 1024px) {
+    .client-navbar {
+        padding: 0.875rem 1.5rem;
+    }
+
+    .nav-buttons {
+        display: none;
+    }
+
+    .menu-dropdown {
+        width: 300px;
+        left: 1.5rem;
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .client-navbar {
+        padding: 0.75rem 1rem;
+        height: auto;
+    }
+
+    .navbar-logo {
+        font-size: 1.5rem;
+    }
+
+    .user-name {
+        display: none;
+    }
+
+    .user-section {
+        gap: 0;
+        padding: 0.5rem;
+    }
+
+    .user-avatar {
+        width: 38px;
+        height: 38px;
+        border-width: 2px;
+    }
+
+    .menu-button {
+        padding: 0.625rem;
+        min-width: 40px;
+        height: 40px;
+    }
+
+    .menu-button vaadin-icon {
+        width: 20px;
+        height: 20px;
+    }
+
+    .menu-dropdown {
+        width: calc(100vw - 2rem);
+        left: 1rem;
+        right: 1rem;
+        max-width: 400px;
+        top: 70px;
+        bottom: 1rem;
+    }
+}
+
+/* Très petit mobile */
+@media (max-width: 480px) {
+    .navbar-logo {
+        font-size: 1.25rem;
+    }
+
+    .menu-dropdown {
+        width: calc(100vw - 1rem);
+        left: 0.5rem;
+        right: 0.5rem;
+        top: 65px;
+        bottom: 0.5rem;
+    }
+
+    .user-info-mobile {
+        padding: 1.25rem;
+    }
+
+    .menu-section {
+        padding: 0.875rem 0.875rem 1.25rem;
+    }
+}
+
+/* ========================================
+   ANIMATIONS
+   ======================================== */
+.menu-dropdown.visible .menu-item {
+    animation: fadeInUp 0.3s ease-out backwards;
+}
+
+.menu-dropdown.visible .menu-item:nth-child(1) {
+    animation-delay: 0.05s;
+}
+
+.menu-dropdown.visible .menu-item:nth-child(2) {
+    animation-delay: 0.1s;
+}
+
+.menu-dropdown.visible .menu-item:nth-child(3) {
+    animation-delay: 0.15s;
+}
+
+.menu-dropdown.visible .menu-item:nth-child(4) {
+    animation-delay: 0.2s;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ========================================
+   ACCESSIBILITÉ
+   ======================================== */
+.menu-button:focus,
+.nav-button:focus,
+.menu-item:focus,
+.logout-button:focus {
+    outline: 3px solid var(--accent-blue);
+    outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}

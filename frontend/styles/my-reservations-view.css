@@ -1,0 +1,746 @@
+/* ==========================================
+   PALETTE DE COULEURS MODERNE - BLEU FONCÉ & GRIS
+   ========================================== */
+:root {
+    --primary-dark: #0f172a;
+    --primary: #1e293b;
+    --primary-light: #334155;
+    --accent: #3b82f6;
+    --accent-hover: #2563eb;
+    --accent-light: #60a5fa;
+    --success: #10b981;
+    --success-dark: #059669;
+    --warning: #f59e0b;
+    --warning-dark: #d97706;
+    --danger: #ef4444;
+    --danger-dark: #dc2626;
+    --gray-50: #f8fafc;
+    --gray-100: #f1f5f9;
+    --gray-200: #e2e8f0;
+    --gray-300: #cbd5e1;
+    --gray-400: #94a3b8;
+    --gray-500: #64748b;
+    --gray-600: #475569;
+    --gray-700: #334155;
+    --shadow-sm: 0 1px 2px 0 rgba(15, 23, 42, 0.05);
+    --shadow: 0 4px 6px -1px rgba(15, 23, 42, 0.1);
+    --shadow-md: 0 10px 15px -3px rgba(15, 23, 42, 0.1);
+    --shadow-lg: 0 20px 25px -5px rgba(15, 23, 42, 0.1);
+    --shadow-xl: 0 25px 50px -12px rgba(15, 23, 42, 0.25);
+}
+
+/* ==========================================
+   CONTENEUR PRINCIPAL
+   ========================================== */
+.my-reservations-view {
+    background: linear-gradient(135deg, var(--gray-50) 0%, var(--gray-100) 100%);
+    min-height: 100vh;
+    padding: 50px 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* ==========================================
+   TITRE DE LA PAGE - DESIGN PREMIUM
+   ========================================== */
+.page-title {
+    font-size: 48px;
+    font-weight: 900;
+    background: linear-gradient(135deg, var(--primary-dark) 0%, var(--accent) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin: 0 0 20px;
+    text-align: center;
+    letter-spacing: -0.5px;
+    position: relative;
+    animation: fadeInDown 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.page-title::after {
+    content: "";
+    display: block;
+    width: 80px;
+    height: 5px;
+    background: linear-gradient(90deg, var(--accent) 0%, var(--accent-hover) 100%);
+    margin: 16px auto 0;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+    animation: expandWidth 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards 0.5s;
+}
+
+@keyframes fadeInDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes expandWidth {
+    from { width: 40px; }
+    to { width: 120px; }
+}
+
+/* ==========================================
+   SECTION RECHERCHE MODERNE
+   ========================================== */
+.search-section {
+    display: flex;
+    gap: 16px;
+    margin: 30px 0;
+    width: 100%;
+    max-width: 900px;
+    align-items: center;
+    animation: fadeIn 1s ease forwards 0.3s;
+    opacity: 0;
+}
+
+@keyframes fadeIn {
+    to { opacity: 1; }
+}
+
+.search-input {
+    flex: 1;
+    height: 58px !important;
+    border-radius: 14px !important;
+    border: 2px solid var(--gray-200) !important;
+    background: white !important;
+    font-size: 15px !important;
+    font-weight: 500 !important;
+    color: var(--primary) !important;
+    padding: 0 20px !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: var(--shadow-sm);
+}
+
+.search-input::part(input-field) {
+    background: white !important;
+    padding-left: 48px !important;
+}
+
+.search-input vaadin-icon {
+    color: var(--accent) !important;
+    font-size: 20px;
+    margin-left: 16px;
+}
+
+.search-input:hover {
+    border-color: var(--gray-300) !important;
+    box-shadow: var(--shadow);
+}
+
+.search-input:focus-within {
+    border-color: var(--accent) !important;
+    box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1), var(--shadow) !important;
+    transform: translateY(-1px);
+}
+
+.search-button {
+    background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%) !important;
+    color: white !important;
+    padding: 0 36px !important;
+    height: 58px !important;
+    border-radius: 14px !important;
+    font-weight: 700 !important;
+    font-size: 15px !important;
+    letter-spacing: 0.3px;
+    box-shadow: var(--shadow-md), 0 4px 12px rgba(15, 23, 42, 0.3);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: none !important;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.search-button:hover {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--accent-hover) 100%) !important;
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-lg), 0 8px 20px rgba(15, 23, 42, 0.4);
+}
+
+.search-button:active {
+    transform: translateY(-1px);
+}
+
+/* ==========================================
+   ONGLETS DE STATUT - DESIGN MODERNE
+   ========================================== */
+.status-tabs {
+    margin: 20px 0 40px;
+    background: white;
+    padding: 12px;
+    border-radius: 16px;
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--gray-200);
+    width: 100%;
+    max-width: 900px;
+    animation: slideInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards 0.4s;
+    opacity: 0;
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.status-tabs vaadin-tab {
+    padding: 14px 28px !important;
+    border-radius: 12px !important;
+    font-weight: 700 !important;
+    font-size: 14px !important;
+    color: var(--gray-600) !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+    position: relative;
+    cursor: pointer;
+}
+
+.status-tabs vaadin-tab:hover {
+    background: var(--gray-50) !important;
+    color: var(--primary) !important;
+    transform: translateY(-2px);
+}
+
+.status-tabs vaadin-tab[selected] {
+    background: linear-gradient(135deg, var(--accent) 0%, var(--accent-hover) 100%) !important;
+    color: white !important;
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+    transform: translateY(-2px);
+}
+
+/* Variantes de couleur pour les onglets sélectionnés */
+.status-tabs vaadin-tab[aria-label*="attente"][selected] {
+    background: linear-gradient(135deg, var(--warning) 0%, var(--warning-dark) 100%) !important;
+    box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
+}
+
+.status-tabs vaadin-tab[aria-label*="Confirmée"][selected] {
+    background: linear-gradient(135deg, var(--success) 0%, var(--success-dark) 100%) !important;
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+}
+
+.status-tabs vaadin-tab[aria-label*="Annulée"][selected] {
+    background: linear-gradient(135deg, var(--danger) 0%, var(--danger-dark) 100%) !important;
+    box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+}
+
+/* ==========================================
+   GRILLE DES RÉSERVATIONS - DESIGN PREMIUM
+   ========================================== */
+.reservations-grid {
+    width: 100% !important;
+    max-width: 1600px !important;
+    background: white !important;
+    border-radius: 20px !important;
+    overflow: visible !important;
+    box-shadow: var(--shadow-xl) !important;
+    border: 1px solid var(--gray-200) !important;
+    margin: 20px 0 !important;
+    animation: slideInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards 0.6s;
+    opacity: 0;
+    min-height: 600px !important;
+}
+
+/* Forcer l'affichage de plusieurs lignes */
+.reservations-grid::part(table) {
+    min-height: 550px !important;
+}
+
+.reservations-grid vaadin-grid-cell-content {
+    height: auto !important;
+    min-height: 100px !important;
+}
+
+/* En-tête du tableau - Couleur claire avec texte blanc */
+.reservations-grid::part(header-cell) {
+    background: linear-gradient(135deg, var(--accent) 0%, var(--accent-hover) 100%) !important;
+    color: white !important;
+    font-weight: 800 !important;
+    font-size: 14px !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+    padding: 20px 24px !important;
+    border: none !important;
+}
+
+/* Lignes du tableau */
+.reservations-grid::part(row) {
+    border-bottom: 1px solid var(--gray-100) !important;
+    transition: all 0.3s ease;
+}
+
+.reservations-grid::part(row):hover {
+    background: var(--gray-50) !important;
+    transform: scale(1.005);
+    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.08);
+}
+
+.reservations-grid::part(cell) {
+    padding: 24px !important;
+    color: var(--primary) !important;
+    font-weight: 500 !important;
+    font-size: 15px !important;
+}
+
+/* Colonne Événement avec image et texte */
+.event-column {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 8px 0;
+}
+
+.event-image-small {
+    width: 80px !important;
+    height: 80px !important;
+    border-radius: 14px !important;
+    object-fit: cover !important;
+    box-shadow: var(--shadow-md);
+    border: 2px solid var(--gray-200);
+    transition: all 0.3s ease;
+}
+
+.event-column:hover .event-image-small {
+    transform: scale(1.05);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--accent);
+}
+
+.event-text {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.event-title {
+    font-size: 16px !important;
+    font-weight: 700 !important;
+    color: var(--primary-dark) !important;
+    line-height: 1.4;
+    letter-spacing: -0.2px;
+}
+
+.event-date {
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    color: var(--gray-500) !important;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.event-date::before {
+    content: "📅";
+    font-size: 14px;
+}
+
+/* ==========================================
+   BADGES DE STATUT - DESIGN MODERNE
+   ========================================== */
+.status-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    min-width: 120px;
+    box-shadow: var(--shadow);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.status-badge::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s ease;
+}
+
+.status-badge:hover::before {
+    left: 100%;
+}
+
+.status-badge.status-en_attente {
+    background: linear-gradient(135deg, var(--warning) 0%, var(--warning-dark) 100%);
+    color: white;
+    box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
+}
+
+.status-badge.status-confirmee {
+    background: linear-gradient(135deg, var(--success) 0%, var(--success-dark) 100%);
+    color: white;
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+}
+
+.status-badge.status-annulee {
+    background: linear-gradient(135deg, var(--danger) 0%, var(--danger-dark) 100%);
+    color: white;
+    box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+}
+
+/* Icônes dans les badges */
+.status-badge.status-en_attente::after {
+    content: "⏳";
+    margin-left: 8px;
+}
+
+.status-badge.status-confirmee::after {
+    content: "✓";
+    margin-left: 8px;
+    font-weight: 900;
+}
+
+.status-badge.status-annulee::after {
+    content: "✕";
+    margin-left: 8px;
+    font-weight: 900;
+}
+
+/* ==========================================
+   BOUTON ANNULER - DESIGN MODERNE
+   ========================================== */
+.cancel-button {
+    background: linear-gradient(135deg, var(--danger) 0%, var(--danger-dark) 100%) !important;
+    color: white !important;
+    padding: 12px 28px !important;
+    border-radius: 12px !important;
+    font-weight: 700 !important;
+    font-size: 13px !important;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: none !important;
+    cursor: pointer;
+}
+
+.cancel-button:hover:not(.disabled) {
+    background: linear-gradient(135deg, var(--danger-dark) 0%, #b91c1c 100%) !important;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(239, 68, 68, 0.4);
+}
+
+.cancel-button:active:not(.disabled) {
+    transform: translateY(-1px);
+}
+
+.cancel-button.disabled {
+    background: linear-gradient(135deg, var(--gray-300) 0%, var(--gray-400) 100%) !important;
+    cursor: not-allowed !important;
+    opacity: 0.6;
+    box-shadow: none !important;
+}
+
+/* ==========================================
+   PAGINATION MODERNE
+   ========================================== */
+.pagination-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    margin: 50px 0 30px;
+    padding: 16px 24px;
+    background: white;
+    border-radius: 16px;
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--gray-200);
+    animation: fadeIn 1s ease forwards 0.8s;
+    opacity: 0;
+}
+
+.pagination-container vaadin-button {
+    background: white !important;
+    color: var(--gray-600) !important;
+    border: 2px solid var(--gray-200) !important;
+    padding: 10px 20px !important;
+    border-radius: 10px !important;
+    font-weight: 700 !important;
+    font-size: 14px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    min-width: 44px;
+    height: 44px;
+}
+
+.pagination-container vaadin-button:hover:not([disabled]) {
+    background: var(--primary) !important;
+    color: white !important;
+    border-color: var(--primary) !important;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow);
+}
+
+.pagination-container vaadin-button[disabled] {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.pagination-container span {
+    color: var(--gray-600);
+    font-weight: 700;
+    font-size: 14px;
+    padding: 8px 16px;
+    background: var(--gray-50);
+    border-radius: 10px;
+    letter-spacing: 0.3px;
+}
+
+/* ==========================================
+   CELLULES SPÉCIALES DU TABLEAU
+   ========================================== */
+
+/* Colonne Date */
+.reservations-grid::part(cell):has([class*="date"]) {
+    font-weight: 600 !important;
+    color: var(--primary) !important;
+}
+
+/* Colonne Places */
+.reservations-grid::part(cell):has([class*="places"]) {
+    font-weight: 700 !important;
+    color: var(--accent) !important;
+    font-size: 16px !important;
+}
+
+/* Colonne Montant */
+.reservations-grid::part(cell):has([class*="montant"]) {
+    font-weight: 800 !important;
+    color: var(--primary-dark) !important;
+    font-size: 17px !important;
+}
+
+/* ==========================================
+   RESPONSIVE DESIGN
+   ========================================== */
+@media (max-width: 1400px) {
+    .reservations-grid {
+        max-width: 95% !important;
+    }
+
+    .event-image-small {
+        width: 70px !important;
+        height: 70px !important;
+    }
+}
+
+@media (max-width: 1024px) {
+    .page-title {
+        font-size: 36px;
+    }
+
+    .search-section {
+        flex-direction: column;
+        max-width: 100%;
+    }
+
+    .search-input,
+    .search-button {
+        width: 100%;
+    }
+
+    .status-tabs {
+        max-width: 100%;
+    }
+
+    .status-tabs vaadin-tab {
+        padding: 12px 20px !important;
+        font-size: 13px !important;
+    }
+
+    .reservations-grid {
+        max-width: 100% !important;
+    }
+
+    .event-column {
+        gap: 12px;
+    }
+
+    .event-image-small {
+        width: 60px !important;
+        height: 60px !important;
+    }
+
+    .event-title {
+        font-size: 14px !important;
+    }
+
+    .event-date {
+        font-size: 12px !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .my-reservations-view {
+        padding: 30px 3%;
+    }
+
+    .page-title {
+        font-size: 28px;
+    }
+
+    .reservations-grid::part(header-cell),
+    .reservations-grid::part(cell) {
+        padding: 16px 12px !important;
+        font-size: 13px !important;
+    }
+
+    .status-badge {
+        padding: 8px 16px;
+        font-size: 12px;
+        min-width: 100px;
+    }
+
+    .cancel-button {
+        padding: 10px 20px !important;
+        font-size: 12px !important;
+    }
+
+    .event-column {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    .page-title {
+        font-size: 24px;
+    }
+
+    .status-tabs vaadin-tab {
+        padding: 10px 16px !important;
+        font-size: 12px !important;
+    }
+
+    .pagination-container {
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+}
+
+/* ==========================================
+   ANIMATIONS ET EFFETS SUPPLÉMENTAIRES
+   ========================================== */
+
+/* Animation au chargement des lignes */
+.reservations-grid vaadin-grid-cell-content {
+    animation: fadeInCell 0.5s ease forwards;
+}
+
+@keyframes fadeInCell {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Effet de pulse sur les badges */
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+.status-badge.status-en_attente {
+    animation: pulse 2s infinite;
+}
+
+/* Sélection de texte stylisée */
+::selection {
+    background: var(--accent);
+    color: white;
+}
+
+::-moz-selection {
+    background: var(--accent);
+    color: white;
+}
+
+/* Scroll smooth */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Focus visible amélioré */
+*:focus-visible {
+    outline: 3px solid var(--accent);
+    outline-offset: 2px;
+    border-radius: 8px;
+}
+
+/* ==========================================
+   AMÉLIORATION DES ICÔNES
+   ========================================== */
+vaadin-icon {
+    color: var(--accent) !important;
+    transition: all 0.3s ease;
+}
+
+vaadin-button:hover vaadin-icon {
+    transform: scale(1.1);
+}
+
+/* ==========================================
+   ÉTAT VIDE
+   ========================================== */
+.reservations-grid:empty::after {
+    content: "Aucune réservation trouvée";
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 80px 40px;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--gray-400);
+}
+
+/* ==========================================
+   AMÉLIORATION DES NOTIFICATIONS
+   ========================================== */
+vaadin-notification-card {
+    background: white !important;
+    border-radius: 16px !important;
+    box-shadow: var(--shadow-xl) !important;
+    border: 1px solid var(--gray-200) !important;
+    padding: 20px 24px !important;
+    font-weight: 600 !important;
+    color: var(--primary) !important;
+}
+
+vaadin-notification-card[theme~="success"] {
+    border-left: 4px solid var(--success) !important;
+}
+
+vaadin-notification-card[theme~="error"] {
+    border-left: 4px solid var(--danger) !important;
+}

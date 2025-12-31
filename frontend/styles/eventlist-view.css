@@ -1,0 +1,712 @@
+/* ==========================================
+   PALETTE DE COULEURS MODERNE
+   ========================================== */
+:root {
+    --primary-dark: #0f172a;      /* Bleu très foncé */
+    --primary: #1e293b;           /* Bleu foncé principal */
+    --primary-light: #334155;     /* Bleu foncé clair */
+    --accent: #3b82f6;            /* Bleu vif pour accents */
+    --accent-hover: #2563eb;      /* Bleu vif hover */
+    --gray-50: #f8fafc;
+    --gray-100: #f1f5f9;
+    --gray-200: #e2e8f0;
+    --gray-300: #cbd5e1;
+    --gray-400: #94a3b8;
+    --gray-500: #64748b;
+    --gray-600: #475569;
+    --gray-700: #334155;
+    --shadow-sm: 0 1px 2px 0 rgba(15, 23, 42, 0.05);
+    --shadow: 0 4px 6px -1px rgba(15, 23, 42, 0.1);
+    --shadow-md: 0 10px 15px -3px rgba(15, 23, 42, 0.1);
+    --shadow-lg: 0 20px 25px -5px rgba(15, 23, 42, 0.1);
+    --shadow-xl: 0 25px 50px -12px rgba(15, 23, 42, 0.25);
+}
+
+/* ==========================================
+   CONTENEUR PRINCIPAL
+   ========================================== */
+.events-list-modern {
+    background: linear-gradient(135deg, var(--gray-50) 0%, var(--gray-100) 100%);
+    font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+    min-height: 100vh;
+    padding: 40px 5%;
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* ==========================================
+   TITRE PRINCIPAL - DESIGN PREMIUM
+   ========================================== */
+.page-main-title-modern {
+    font-size: 48px;
+    font-weight: 900;
+    background: linear-gradient(135deg, var(--primary-dark) 0%, var(--accent) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin: 20px 0 15px;
+    letter-spacing: -0.5px;
+    text-align: center;
+    position: relative;
+    animation: fadeInDown 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.page-main-title-modern::after {
+    content: "";
+    display: block;
+    width: 80px;
+    height: 5px;
+    background: linear-gradient(90deg, var(--accent) 0%, var(--accent-hover) 100%);
+    margin: 16px auto 0;
+    border-radius: 10px;
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+}
+
+.page-main-title-modern:hover::after {
+    width: 140px;
+    box-shadow: 0 6px 20px rgba(59, 130, 246, 0.6);
+}
+
+/* Sous-titre élégant */
+.page-subtitle-modern {
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--gray-500);
+    margin-top: 12px;
+    text-align: center;
+    opacity: 0;
+    animation: fadeIn 1s cubic-bezier(0.16, 1, 0.3, 1) forwards 0.3s;
+    letter-spacing: 0.3px;
+}
+
+/* Animations fluides */
+@keyframes fadeInDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    to { opacity: 1; }
+}
+
+/* ==========================================
+   SECTION FILTRES - DESIGN GLASSMORPHISM
+   ========================================== */
+.filters-section-wrapper {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    border-radius: 24px;
+    padding: 40px;
+    margin: 30px auto 60px;
+    width: 100%;
+    max-width: 1300px;
+    box-shadow: var(--shadow-lg), 0 0 0 1px rgba(15, 23, 42, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    transition: all 0.3s ease;
+}
+
+.filters-section-wrapper:hover {
+    box-shadow: var(--shadow-xl), 0 0 0 1px rgba(59, 130, 246, 0.1);
+}
+
+.filters-title {
+    font-size: 26px;
+    font-weight: 800;
+    color: var(--primary-dark);
+    margin-bottom: 32px;
+    padding-bottom: 16px;
+    border-bottom: 3px solid var(--gray-200);
+    position: relative;
+    letter-spacing: -0.3px;
+}
+
+.filters-title::before {
+    content: "";
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent) 0%, var(--accent-hover) 100%);
+    border-radius: 10px;
+}
+
+/* Lignes de filtres */
+.filters-row {
+    display: flex;
+    gap: 24px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+.filter-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex: 1;
+    min-width: 240px;
+}
+
+.filter-label {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--primary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 2px;
+}
+
+/* Champs de saisie modernes */
+.filter-input {
+    height: 56px;
+    border-radius: 14px;
+    border: 2px solid var(--gray-200);
+    padding: 0 18px;
+    font-size: 15px;
+    font-weight: 500;
+    background: white !important;
+    color: var(--primary);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: var(--shadow-sm);
+}
+
+.filter-input::part(input-field) {
+    background: white !important;
+}
+
+.filter-input:hover {
+    border-color: var(--gray-300);
+    box-shadow: var(--shadow);
+}
+
+.filter-input:focus {
+    border-color: var(--accent) !important;
+    box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1), var(--shadow) !important;
+    transform: translateY(-1px);
+}
+
+.filter-input::part(prefix) {
+    color: var(--accent);
+    font-size: 18px;
+}
+
+/* Plages de dates et prix */
+.date-range-group, .price-range-group {
+    flex: 1.6;
+}
+
+.date-range, .price-range {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.date-arrow {
+    font-size: 20px;
+    color: var(--accent);
+    font-weight: 700;
+}
+
+.date-input, .price-input {
+    flex: 1;
+}
+
+.keyword-input {
+    min-width: 320px;
+}
+
+/* ==========================================
+   BOUTONS D'ACTION - DESIGN PREMIUM
+   ========================================== */
+.action-buttons {
+    display: flex;
+    gap: 16px;
+    align-items: flex-end;
+    flex-wrap: wrap;
+}
+
+.btn-filter {
+    background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%) !important;
+    color: white !important;
+    padding: 0 36px !important;
+    height: 56px;
+    border-radius: 14px !important;
+    font-weight: 700 !important;
+    font-size: 15px !important;
+    letter-spacing: 0.3px;
+    box-shadow: var(--shadow-md), 0 4px 12px rgba(15, 23, 42, 0.3);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: none !important;
+    text-transform: uppercase;
+}
+
+.btn-filter:hover {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--accent-hover) 100%) !important;
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-lg), 0 8px 20px rgba(15, 23, 42, 0.4);
+}
+
+.btn-filter:active {
+    transform: translateY(-1px);
+}
+
+.btn-reset {
+    background: white !important;
+    color: var(--primary) !important;
+    border: 2px solid var(--primary) !important;
+    padding: 0 32px !important;
+    height: 56px;
+    border-radius: 14px !important;
+    font-weight: 700 !important;
+    font-size: 15px !important;
+    letter-spacing: 0.3px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: var(--shadow-sm);
+    text-transform: uppercase;
+}
+
+.btn-reset:hover {
+    background: var(--primary) !important;
+    color: white !important;
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+}
+
+.sort-select {
+    min-width: 200px;
+    height: 56px;
+}
+
+/* ==========================================
+   GRILLE D'ÉVÉNEMENTS
+   ========================================== */
+.events-grid-wrapper {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0;
+}
+
+.events-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 32px;
+    width: 100%;
+    justify-items: center;
+}
+
+/* ==========================================
+   CARTES D'ÉVÉNEMENTS - DESIGN ULTRA-MODERNE
+   ========================================== */
+.event-card {
+    background: white;
+    border: 1px solid var(--gray-200);
+    border-radius: 20px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: var(--shadow);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    width: 100%;
+    max-width: 420px;
+    position: relative;
+}
+
+.event-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--accent) 0%, var(--accent-hover) 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.event-card:hover {
+    box-shadow: var(--shadow-xl);
+    transform: translateY(-8px);
+    border-color: var(--accent);
+}
+
+.event-card:hover::before {
+    opacity: 1;
+}
+
+/* Image d'événement */
+.event-img {
+    width: 100%;
+    height: 240px;
+    overflow: hidden;
+    position: relative;
+    background: var(--gray-100);
+}
+
+.event-img::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 80px;
+    background: linear-gradient(to top, rgba(15, 23, 42, 0.6), transparent);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.event-card:hover .event-img::after {
+    opacity: 1;
+}
+
+.event-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.event-card:hover .event-image {
+    transform: scale(1.08);
+}
+
+/* Contenu de la carte */
+.event-content {
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    flex: 1;
+    background: white;
+}
+
+.event-title {
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--primary-dark);
+    margin: 0 0 12px;
+    line-height: 1.3;
+    letter-spacing: -0.3px;
+    transition: color 0.3s ease;
+}
+
+.event-card:hover .event-title {
+    color: var(--accent);
+}
+
+.event-location {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--gray-500);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    letter-spacing: 0.2px;
+}
+
+.event-details {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 24px;
+    width: 100%;
+}
+
+.event-details p {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--gray-600);
+    padding: 8px 12px;
+    background: var(--gray-50);
+    border-radius: 8px;
+    border-left: 3px solid var(--accent);
+}
+
+/* Bouton de détails premium */
+.btn-details {
+    background: linear-gradient(135deg, var(--accent) 0%, var(--accent-hover) 100%) !important;
+    color: white !important;
+    padding: 14px 28px !important;
+    border-radius: 12px !important;
+    font-weight: 700 !important;
+    font-size: 14px !important;
+    margin-top: auto;
+    align-self: stretch;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: none !important;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.btn-details:hover {
+    background: linear-gradient(135deg, var(--accent-hover) 0%, var(--primary) 100%) !important;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+}
+
+.btn-details:active {
+    transform: translateY(0);
+}
+
+/* ==========================================
+   ÉTAT VIDE
+   ========================================== */
+.empty-state {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 80px 40px;
+    background: white;
+    border-radius: 20px;
+    border: 2px dashed var(--gray-300);
+    box-shadow: var(--shadow);
+}
+
+.empty-state h3 {
+    font-size: 24px;
+    font-weight: 800;
+    color: var(--primary-dark);
+    margin-bottom: 12px;
+}
+
+.empty-state p {
+    font-size: 16px;
+    color: var(--gray-500);
+    font-weight: 500;
+}
+
+/* ==========================================
+   PAGINATION MODERNE
+   ========================================== */
+.pagination-modern {
+    display: flex;
+    justify-content: center;
+    margin: 60px 0 40px;
+    width: 100%;
+}
+
+.pagination-controls {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: white;
+    padding: 12px 20px;
+    border: 1px solid var(--gray-200);
+    border-radius: 16px;
+    box-shadow: var(--shadow-md);
+}
+
+.page-info {
+    color: var(--gray-600);
+    font-weight: 700;
+    font-size: 14px;
+    padding: 8px 16px;
+    background: var(--gray-50);
+    border-radius: 10px;
+    letter-spacing: 0.3px;
+}
+
+.page-numbers-modern {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.page-number-btn {
+    min-width: 44px;
+    height: 44px;
+    border: 2px solid var(--gray-200);
+    background: white;
+    color: var(--gray-600);
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 14px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+}
+
+.page-number-btn:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow);
+}
+
+.page-number-btn.active {
+    background: linear-gradient(135deg, var(--accent) 0%, var(--accent-hover) 100%);
+    color: white;
+    border-color: var(--accent);
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+    transform: translateY(-2px);
+}
+
+.page-dots {
+    color: var(--gray-400);
+    font-weight: 700;
+    font-size: 18px;
+}
+
+.btn-next {
+    background: white !important;
+    color: var(--gray-600) !important;
+    border: 2px solid var(--gray-200) !important;
+    padding: 10px 20px !important;
+    border-radius: 10px !important;
+    font-weight: 700 !important;
+    font-size: 14px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    letter-spacing: 0.3px;
+}
+
+.btn-next:hover {
+    background: var(--primary) !important;
+    color: white !important;
+    border-color: var(--primary) !important;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow);
+}
+
+/* ==========================================
+   RESPONSIVE DESIGN
+   ========================================== */
+@media (max-width: 1200px) {
+    .events-grid {
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 28px;
+    }
+}
+
+@media (max-width: 768px) {
+    .page-main-title-modern {
+        font-size: 32px;
+    }
+
+    .page-subtitle-modern {
+        font-size: 16px;
+    }
+
+    .filters-section-wrapper {
+        padding: 28px 20px;
+        border-radius: 20px;
+    }
+
+    .filters-row {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .filter-group,
+    .date-range-group,
+    .price-range-group,
+    .keyword-input {
+        width: 100%;
+        min-width: 100%;
+    }
+
+    .action-buttons {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .btn-filter,
+    .btn-reset,
+    .sort-select {
+        width: 100%;
+    }
+
+    .events-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .event-card {
+        max-width: 100%;
+    }
+
+    .pagination-controls {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .events-list-modern {
+        padding: 20px 3%;
+    }
+
+    .page-main-title-modern {
+        font-size: 28px;
+    }
+
+    .filters-title {
+        font-size: 22px;
+    }
+
+    .event-img {
+        height: 200px;
+    }
+
+    .event-content {
+        padding: 20px;
+    }
+}
+
+/* ==========================================
+   ANIMATIONS ET EFFETS SUPPLÉMENTAIRES
+   ========================================== */
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.event-card {
+    animation: slideInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.event-card:nth-child(1) { animation-delay: 0.1s; }
+.event-card:nth-child(2) { animation-delay: 0.2s; }
+.event-card:nth-child(3) { animation-delay: 0.3s; }
+.event-card:nth-child(4) { animation-delay: 0.4s; }
+
+/* Effet de focus amélioré */
+*:focus-visible {
+    outline: 3px solid var(--accent);
+    outline-offset: 2px;
+    border-radius: 8px;
+}
+
+/* Scroll smooth */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Sélection de texte stylisée */
+::selection {
+    background: var(--accent);
+    color: white;
+}
+
+::-moz-selection {
+    background: var(--accent);
+    color: white;
+}
